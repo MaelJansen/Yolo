@@ -5,9 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yolo</title>
     <link rel="stylesheet" href="../static/css/yolo.css" />
+    <script type = "text/javascript" src = "../static/js/yolo.min.js"></script>	
+	<script type = "text/javascript" src="../static/js/yolo.js"></script>
+	<script type= "text/javascript">
+		$(document).ready(function(){
+			$(".sky").Background({
+				birds:'5',
+				size:'20',
+				interval : '30',
+				velocity : '3',
+				color : 'rgb(255, 255, 255, 1)' //Only In RGB format. don't use #hex or any other color format
+			});
+		})
+	</script>
   </head>
   <body>
     <div class="sky">
+        <canvas id = "Background"></canvas>
       <div class="sun"></div>
       <div class="airplane">
         <img src="../../media/images/aircraft.max-165x165.png" alt="aircraft" />
