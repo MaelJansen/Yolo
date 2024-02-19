@@ -83,7 +83,6 @@ div {
   background-color: #ffdd50;
   border-radius: 50%;
   animation: shine 10s ease-in-out infinite;
-  z-index: 100;
   margin-top: -5.5em;
 }
 
@@ -101,6 +100,28 @@ div {
 .beach-umbrella img {
   width: 14em;
   margin-left: 2em;
+}
+
+.airplane {
+  width: 100%;
+  animation: animationImage 20s linear infinite;
+  display: flex;
+  margin-top: 7em;
+  align-items: center;
+}
+
+.airplane img {
+  width: 7em;
+  z-index: 1;
+  transform: rotateY(180deg);
+}
+
+.logo {
+  width: 5em;
+  background-color: white;
+  text-align: center;
+  margin-left: 5em;
+  font-size: xx-large;
 }
 
 @keyframes waveanim {
@@ -151,5 +172,14 @@ div {
 @keyframes shine {
   50% {
     box-shadow: 0 0 20px #ffdd50, 0 0 60px #ffdd50, 0 0 250px #ffdd50;
+  }
+}
+
+@keyframes animationImage {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
