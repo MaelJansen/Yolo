@@ -1,46 +1,36 @@
-{% load static wagtailcore_tags wagtailuserbar %}
-
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>
-            {% block title %}
-            {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
-            {% endblock %}
-            {% block title_suffix %}
-            {% wagtail_site as current_site %}
-            {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
-            {% endblock %}
-        </title>
-        {% if page.search_description %}
-        <meta name="description" content="{{ page.search_description }}" />
-        {% endif %}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        {# Force all links in the live preview panel to be opened in a new tab #}
-        {% if request.in_preview_panel %}
-        <base target="_blank">
-        {% endif %}
-
-        {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/yolo.css' %}">
-
-        {% block extra_css %}
-        {# Override this in templates to add extra stylesheets #}
-        {% endblock %}
-    </head>
-
-    <body class="{% block body_class %}{% endblock %}">
-        {% wagtailuserbar %}
-
-        {% block content %}{% endblock %}
-
-        {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/yolo.js' %}"></script>
-
-        {% block extra_js %}
-        {# Override this in templates to add extra javascript #}
-        {% endblock %}
-    </body>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yolo</title>
+    <link rel="stylesheet" href="../static/css/yolo.css" />
+  </head>
+  <body>
+    <div class="sky">
+      <div class="sun"></div>
+      <div class="airplane">
+        <img src="../../media/images/aircraft.max-165x165.png" alt="aircraft" />
+        <div class="logo">YOLO</div>
+      </div>
+    </div>
+    <div class="sand">
+      <div class="deckchair">
+        <img
+          src="../../media/images/deck-chair.max-165x165.png"
+          alt="deck-chair"
+        />
+      </div>
+      <div class="beach-umbrella">
+        <img
+          src="../../media/images/flat-beach-removebg.max-165x165.png"
+          alt="beach-umbrella"
+        />
+      </div>
+    </div>
+    <div class="wet-sand"></div>
+    <div class="sea"></div>
+    <div class="seafoam"></div>
+    <div class="sand-front"></div>
+  </body>
 </html>
