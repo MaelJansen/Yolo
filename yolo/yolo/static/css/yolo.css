@@ -78,12 +78,12 @@ div {
 }
 
 .sun {
-  width: 12vw;
-  height: 20vh;
+  width: 12em;
+  height: 12em;
   background-color: #ffdd50;
   border-radius: 50%;
   animation: shine 10s ease-in-out infinite;
-  margin-top: -5.5em;
+  margin-top: -8em;
 }
 
 .deckchair {
