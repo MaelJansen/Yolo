@@ -3,6 +3,23 @@ body {
   overflow: hidden;
 }
 
+.interface{
+  position: relative
+}
+
+.logo{
+  padding-top: 10px;
+  padding-left: 10px;
+  display: flex;
+  align-items: baseline;
+  font-weight:lighter;
+  font-size:xx-large;
+}
+
+.logo img{
+  width: 1.5em;
+  margin-right: -0.5em;
+}
 
 .sky {
   position: absolute;
@@ -56,7 +73,7 @@ body {
   top: 65%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-around;
 }
 
 .sand-front {
@@ -90,24 +107,6 @@ body {
   margin-top: -8em;
 }
 
-.deckchair {
-  position: absolute;
-  z-index: 2;
-  margin-top: 5em;
-  margin-right: 2em;
-  transform: rotateY(180deg);
-}
-
-.beach-umbrella {
-  position: absolute;
-  z-index: 1;
-}
-
-.beach-umbrella img {
-  width: 14em;
-  margin-left: 2em;
-}
-
 .airplane {
   position: absolute;
   width: 100%;
@@ -123,19 +122,24 @@ body {
   transform: rotateY(180deg);
 }
 
-.logo {
+.logo-banner {
   position: absolute;
   width: 5em;
+  height: 1.5em;
   background-color: white;
   text-align: center;
+  line-height: 1.5em;
   margin-left: 5em;
   font-size: xx-large;
+  font-weight: bolder;
+  letter-spacing: 0.4em;
+  padding-left: 0.4em;
 }
 
-.sport {
+.sand .left {
   z-index: 1;
-  margin-top: 4em;
-  margin-right: 83%;
+  margin-top: 9em;
+  margin-right: 90%;
   position: absolute;
   display: flex;
   justify-content: flex-start;
@@ -152,6 +156,28 @@ body {
 .board {
   width: 8em;
   margin-right: 3em;
+}
+
+.sand .right {
+  z-index: 1;
+  margin-top: 4em;
+  margin-left: 95%;
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.deckchair {
+  position: absolute;
+  z-index: 2;
+  margin-top: 5.5em;
+  transform: rotateY(180deg);
+}
+
+.beach-umbrella{
+  width: 14em;
+  position: absolute;
+  z-index: 1;
 }
 
 @keyframes waveanim {
