@@ -26,7 +26,7 @@
   <script type = "text/javascript" src="../static/Semantic-UI-CSS-master/Semantic-UI-CSS-master/semantic.min.js"></script>
   </head>
   <body>
-    <div class="back" style="z-index: 1;">
+    <div class="back">
       <div class="sky">
           <canvas id = "Background"></canvas>
         <div class="sun"></div>
@@ -34,13 +34,10 @@
       </div>
       <div class="airplane">
         <img src="../../media/images/aircraft.max-165x165.png" alt="aircraft" />
-        <div class="logo">YOLO</div>
+        <div class="logo-banner">YOLO</div>
       </div>
-
-      
-      
       <div class="sand">
-        <div class="sport">
+        <div class="left">
           <img
             class="ball"
             src="../../media/images/volleyball.max-165x165.png"
@@ -52,17 +49,15 @@
             alt="board"
           />
         </div>
-        <div class="deckchair">
-          <img
+        <div class="right">
+          <img class="deckchair"
             src="../../media/images/deck-chair.max-165x165.png"
             alt="deck-chair"
-          />
-        </div>
-        <div class="beach-umbrella">
-          <img
-            src="../../media/images/flat-beach-removebg.max-165x165.png"
-            alt="beach-umbrella"
-          />
+            />
+            <img class="beach-umbrella"
+              src="../../media/images/flat-beach-removebg.max-165x165.png"
+              alt="beach-umbrella"
+            />
         </div>
       </div>
       <div class="wet-sand"></div>
@@ -70,7 +65,12 @@
       <div class="seafoam"></div>
       <div class="sand-front"></div>
     </div>
-    <div class="interface" style="z-index: 5;">
+    <div class="interface">
+      <nav class="top-navbar"><div class="logo"><img class="ui image" src="../../media/images/martini-glass.png" alt="Y" />OLO</div></nav>
+      <div class="section">
+        <h1>Accueil</h1>
+        <p>Bienvenue sur Yolo</p>
+      </div>
       <!-- METTRE LE CONTENU DE LINTERFACE ICI -->
     </div>
   </body>
