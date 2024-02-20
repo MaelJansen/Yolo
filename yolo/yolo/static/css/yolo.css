@@ -3,13 +3,22 @@ body {
   overflow: hidden;
 }
 
-.interface{
-  position: relative
+.interface {
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  flex-flow: column;
+}
+
+.top-navbar{
+  min-width: 100%;
+  padding: 10px;
 }
 
 .logo{
-  padding-top: 10px;
-  padding-left: 10px;
   display: flex;
   align-items: baseline;
   font-weight:lighter;
@@ -19,6 +28,20 @@ body {
 .logo img{
   width: 1.5em;
   margin-right: -0.5em;
+}
+
+.section{
+  max-width: 95%;
+  min-width: 75%;
+  margin:2em;
+  margin-top: 1em;
+  height: 61em;
+  background: rgba(255, 255, 255, 0.685);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .sky {
