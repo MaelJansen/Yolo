@@ -5,6 +5,7 @@ body {
 
 .interface {
   width: 100%;
+  height: 100%;
   display: flex;
   position: relative;
   align-items: center;
@@ -16,6 +17,26 @@ body {
 .top-navbar{
   min-width: 100%;
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu a{
+  margin: 0 20px;
+  font-size: large;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.menu a:hover{
+  color: #f0f0f0;
 }
 
 .logo{
@@ -23,11 +44,13 @@ body {
   align-items: baseline;
   font-weight:lighter;
   font-size:xx-large;
+  color: white; 
 }
 
 .logo img{
   width: 1.5em;
   margin-right: -0.5em;
+  filter: invert(1);
 }
 
 .section{
@@ -249,8 +272,14 @@ body {
 }
 
 @keyframes shine {
+  0% {
+    box-shadow: 0 0 10px #ffdd50, 0 0 40px #ffdd50, 0 0 250px #ffdd50;
+  }
   50% {
-    box-shadow: 0 0 20px #ffdd50, 0 0 60px #ffdd50, 0 0 250px #ffdd50;
+    box-shadow: 0 0 40px #ffdd50, 0 0 80px #ffdd50, 0 0 300px #ffdd50;
+  }
+  100% {
+    box-shadow: 0 0 10px #ffdd50, 0 0 40px #ffdd50, 0 0 200px #ffdd50;
   }
 }
 
