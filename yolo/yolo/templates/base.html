@@ -5,54 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yolo</title>
     <link rel="stylesheet" href="../static/css/yolo.css" />
-    <script type="text/javascript" src="../static/js/yolo.min.js"></script>
-    <script type="text/javascript" src="../static/js/yolo.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $(".sky").Background({
-          birds: "5",
-          size: "20",
-          interval: "30",
-          velocity: "3",
-          color: "rgb(255, 255, 255, 1)", //Only In RGB format. don't use #hex or any other color format
-        });
-      });
-    </script>
+    <link
+      rel="stylesheet"
+      href="../static/Semantic-UI-CSS-master/Semantic-UI-CSS-master/semantic.min.css"
+    />
+    <script type = "text/javascript" src = "../static/js/yolo.min.js"></script>	
+	<script type = "text/javascript" src="../static/js/yolo.js"></script>
+  <script type = "text/javascript" src="../static/Semantic-UI-CSS-master/Semantic-UI-CSS-master/semantic.min.js"></script>
+	<script type= "text/javascript">
+		$(document).ready(function(){
+			$(".sky").Background({
+				birds:'5',
+				size:'20',
+				interval : '30',
+				velocity : '3',
+				color : 'rgb(255, 255, 255, 1)' //Only In RGB format. don't use #hex or any other color format
+			});
+		})
+	</script>
+  <script type = "text/javascript" src="../static/Semantic-UI-CSS-master/Semantic-UI-CSS-master/semantic.min.js"></script>
   </head>
   <body>
-    <div class="sky">
-      <canvas id="Background"></canvas>
-      <div class="sun"></div>
+    <div class="back">
+      <div class="sky">
+          <canvas id = "Background"></canvas>
+        <div class="sun"></div>
+        
+      </div>
       <div class="airplane">
         <img src="../../media/images/aircraft.max-165x165.png" alt="aircraft" />
-        <div class="logo">YOLO</div>
+        <div class="logo-banner">YOLO</div>
       </div>
+      <div class="sand">
+        <div class="left">
+          <img
+            class="ball"
+            src="../../media/images/volleyball.max-165x165.png"
+            alt="volleyball"
+          />
+          <img
+            class="board"
+            src="../../media/images/board.max-165x165.png"
+            alt="board"
+          />
+        </div>
+        <div class="right">
+          <img class="deckchair"
+            src="../../media/images/deck-chair.max-165x165.png"
+            alt="deck-chair"
+            />
+            <img class="beach-umbrella"
+              src="../../media/images/flat-beach-removebg.max-165x165.png"
+              alt="beach-umbrella"
+            />
+        </div>
+      </div>
+      <div class="wet-sand"></div>
+      <div class="sea"></div>
+      <div class="seafoam"></div>
+      <div class="sand-front"></div>
     </div>
-    <div class="sand">
-      <div class="sport">
-        <img
-          class="ball"
-          src="../../media/images/volleyball.max-165x165.png"
-          alt="volleyball"
-        />
-        <img
-          class="board"
-          src="../../media/images/board.max-165x165.png"
-          alt="board"
-        />
+    <div class="interface">
+      <nav class="top-navbar">
+        <div class="logo">
+          <a href="#">
+            <img class="ui image" src="../../media/images/martini-glass.png" alt="Y" />
+            OLO
+          </a>
+        </div>
+        <div class="menu">
+          <div class="menu-left">
+            <a href="#">Home</a>
+            <a href="#">Cocktails</a>
+          </div>
+          <div class="menu-right">
+            <a href="#">Add</a>
+            <a href="#">List</a>
+        </div>
+      </nav>
+      <div class="section">
+        <h1>Home</h1>
+        <h3>Welcole to Yolo, your favourite cocktail listing app !</h3>
       </div>
-      <div class="deckchair">
-        <img
-          src="../../media/images/deck-chair.max-165x165.png"
-          alt="deck-chair"
-        />
-      </div>
-      <div class="beach-umbrella">
-        <img
-          src="../../media/images/flat-beach-removebg.max-165x165.png"
-          alt="beach-umbrella"
-        />
-      </div>
+      <!-- METTRE LE CONTENU DE LINTERFACE ICI -->
     </div>
     <div class="wet-sand"></div>
     <div class="sea"></div>
