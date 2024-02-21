@@ -40,6 +40,7 @@ class Command(BaseCommand):
 
             strDrink = cocktail_details.get('strDrink', '')
             strDrinkThumb = cocktail_details.get('strDrinkThumb', '')
+            strAlcoholic = cocktail_details.get('strAlcoholic', '')
             ingredients = []
 
             # Get the ingredients
@@ -53,6 +54,7 @@ class Command(BaseCommand):
                 strDrink=strDrink,
                 strDrinkThumb=strDrinkThumb,
                 idDrink=idDrink,
+                strAlcoholic=strAlcoholic,
                 ingredients=ingredients
             )
             cocktails_index_page.add_child(instance=cocktail_page)
