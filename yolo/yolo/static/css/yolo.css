@@ -9,14 +9,13 @@ body {
   display: flex;
   position: relative;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   z-index: 5;
   flex-flow: column;
 }
 
 .top-navbar{
   min-width: 100%;
-  padding: 10px;
   display: flex;
   justify-content: space-between;
 }
@@ -37,9 +36,10 @@ body {
 
 .menu a:hover{
   color: #f0f0f0;
+  text-decoration: underline;
 }
 
-.logo{
+.logo a{
   display: flex;
   align-items: baseline;
   font-weight:lighter;
@@ -47,23 +47,27 @@ body {
   color: white; 
 }
 
+.logo a:hover{
+  color: #f0f0f0;
+}
+
 .logo img{
   width: 1.5em;
   margin-right: -0.5em;
+  margin-left: 1em;
   filter: invert(1);
 }
 
 .section{
-  max-width: 95%;
-  min-width: 75%;
-  margin:2em;
-  margin-top: 1em;
-  height: 61em;
-  background: rgba(255, 255, 255, 0.685);
+  max-width: 1100px;
+  height: 90%;
+  width: 95%;
+  padding: 1em;
+  background: rgba(255, 255, 255, 0.493);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(7px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
