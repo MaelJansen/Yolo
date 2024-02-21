@@ -15,7 +15,7 @@ urlpatterns = [
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
-    path('cocktail/', cocktail_views.liste_cocktail, name='liste_cocktail')
+    path("api/", include("cocktail.urls")),
 ]
 
 
