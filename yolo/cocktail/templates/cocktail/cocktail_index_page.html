@@ -1,0 +1,15 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <ul class="cocktail-list">
+    <li>{{Cocktails.name}}</li>
+  </ul>
+</div>
+
+{% if cocktails.paginator.count > 12 %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">test</div>
+  </div>
+</div>
+{% endif %} {% endblock content %}
