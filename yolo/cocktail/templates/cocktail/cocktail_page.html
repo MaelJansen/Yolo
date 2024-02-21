@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% block list %}
+<div class="ui card">
+    <div class="image">
+        <img src="{{page.strDrinkThumb}}">
+    </div>
+    <div class="content">
+    
+    <div class="header"><a href="{% pageurl page %}">{{ page.strDrink }}</a></div>
+    <div class="meta">{{page.strAlcoholic}}</div>
+    <div class="description">
+        <h4>Ingredients</h4>
+        {{page.ingredients}}
+    </div>
+    <div class="description">
+        <h4>Instructions</h4>
+        {{page.strInstructions}}
+    </div>
+    </div>
+    <div class="extra content">
+    <div class="ui two buttons">
+        <div class="ui basic green button">Approve</div>
+        <div class="ui basic red button">Decline</div>
+    </div>
+    </div>
+</div>
+
+
+{% endblock %}

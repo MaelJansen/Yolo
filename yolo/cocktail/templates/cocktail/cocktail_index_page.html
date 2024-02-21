@@ -1,4 +1,7 @@
-{% extends "base.html" %} {% block contenta %}
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block list %}
 
 <div class="container">
   <ul class="cocktail-list">
@@ -10,9 +13,9 @@
             class="right floated mini ui image"
             src="{{cocktail.strDrinkThumb}}"
           />
-          <div class="header">{{cocktail.strDrink}}</div>
+          <div class="header"><a href="{% pageurl cocktail %}">{{ cocktail.strDrink }}</a></div>
           <div class="meta">{{cocktail.strAlcoholic}}</div>
-          <div class="description">{{cocktail.strInstructions}}</div>
+          <div class="description">{{cocktail.ingredients}}</div>
         </div>
         <div class="extra content">
           <div class="ui two buttons">
@@ -27,7 +30,7 @@
 </div>
 
 <!-- BEGIN: Pagination -->
-<div class="pagination">
+<div class="ui pagination menu">
   {% if Cocktails.has_previous %}
   <a href="?page={{ Cocktails.previous_page_number }}">Previous</a>
   {% endif %}
@@ -38,4 +41,4 @@
 </div>
 <!-- END: Pagination -->
 
-{% endblock contenta %}
+{% endblock list %}

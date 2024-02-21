@@ -9,12 +9,14 @@ class Cocktail(models.Model):
     image = models.ImageField(upload_to="cocktail_images", blank=True)
     ingredients = models.JSONField(default=list)
     alcoholic = models.CharField(max_length=50, default="Alcoholic")
+    instructions = models.TextField(default="")
 
     panels = [
         FieldPanel("name"),
         FieldPanel("image"),
         FieldPanel("ingredients"),
-        FieldPanel("alcoholic")
+        FieldPanel("alcoholic"),
+        FieldPanel("instructions")
     ]
 
     def __str__(self) -> str:
@@ -27,13 +29,15 @@ class CocktailPage(Page):
     idDrink = models.CharField(max_length=200)
     ingredients = models.JSONField(default=list)
     strAlcoholic = models.CharField(max_length=50, default="Alcoholic")
+    strInstructions = models.TextField(default="")
 
     content_panels = Page.content_panels + [
         FieldPanel("strDrink"),
         FieldPanel("strDrinkThumb"),
         FieldPanel("idDrink"),
         FieldPanel("ingredients"),
-        FieldPanel("strAlcoholic")
+        FieldPanel("strAlcoholic"),
+        FieldPanel("strInstructions")
     ]
 
     search_auto_update = False
@@ -47,7 +51,7 @@ class CocktailIndexPage(Page):
 
     def paginate(self, request, *args):
         page = request.GET.get("page")
-        paginator = Paginator(self.get_cocktails(), 3)
+        paginator = Paginator(self.get_cocktails(), 6)
         try:
             pages = paginator.page(page)
         except PageNotAnInteger:
@@ -60,5 +64,4 @@ class CocktailIndexPage(Page):
         context = super().get_context(request)
         cocktails = self.paginate(request)
         context["Cocktails"] = cocktails
-        print("THIS IS THE CONTEXT", context)
         return context
