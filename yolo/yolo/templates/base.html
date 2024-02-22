@@ -2,7 +2,7 @@
 {% load static wagtailcore_tags %}
 <html lang="fr">
   <head>
-    <meta charset="UTF-8" />  
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yolo</title>
     <link rel="stylesheet" href="{% static 'css/yolo.css' %}" />
@@ -33,7 +33,7 @@
     ></script>
   </head>
   <body>
-    {% block contenu %} 
+    {% block contenu %}
     <div class="back">
       <div class="sky">
         <canvas id="Background"></canvas>
@@ -77,12 +77,10 @@
     <div class="interface">
       {% include "includes/header.html" %}
       <div class="section">
-
-        {% block list %}
-        
+        {% block auht %} {% block list %}
         <h1>Home</h1>
         <h3>Welcome to Yolo, your favourite cocktail listing app !</h3>
-        {% endblock list %}
+        {% endblock list %} {% endblock auht %}
       </div>
     </div>
     <div class="wet-sand"></div>
