@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block list %}
+
+    {% if request.GET.tag %}
+        <h4>Showing pages tagged "{{ request.GET.tag }}"</h4>
+    {% endif %}
+
+    <div class="container">
+        <ul class="cocktail-list">
+          <div class="ui cards">
+            {% for cocktailpage in cocktailpages %}
+            <div class="card">
+              <div class="content">
+                <img
+                  class="right floated mini ui image"
+                  src="{{cocktailpage.strDrinkThumb}}"
+                />
+                <div class="header"><a href="{% pageurl cocktailpage %}">{{ cocktailpage.strDrink }}</a></div>
+                <div class="meta">{{cocktailpage.strAlcoholic}}</div>
+                <div class="description"><p>
+                  {% for ingredient in cocktailpage.ingredients %}
+                  {{ingredient}}{% if not forloop.last %},{% endif %}
+                  {% endfor %}
+                  </p></div>
+              </div>
+              <div class="extra content">
+                <div class="ui two buttons">
+                  <div class="ui basic green button">Approve</div>
+                  <div class="ui basic red button">Decline</div>
+                </div>
+              </div>
+            </div>
+            {% empty %}
+            No pages found with that tag.
+            {% endfor %}
+          </div>
+        </ul>
+      </div>
+
+
+
+    
+{% endblock list %}

@@ -1,7 +1,7 @@
 import csv
 from django.core.management.base import BaseCommand
 from wagtail.models import Page
-from ...models import CocktailPage, CocktailIndexPage
+from ...models import CocktailPage, CocktailIndexPage, CocktailTagIndexPage
 import json
 import requests
 
@@ -19,6 +19,11 @@ class Command(BaseCommand):
         cocktails_index_page = CocktailIndexPage(title="Cocktails")
         home.add_child(instance=cocktails_index_page)
         cocktails_index_page.save_revision().publish()
+
+        # Créez la page d'index des tags
+        tags_index_page = CocktailTagIndexPage(title="Tags")
+        home.add_child(instance=tags_index_page)
+        tags_index_page.save_revision().publish()
 
         # Obtenez les données JSON de l'API
         response = requests.get(
@@ -61,5 +66,7 @@ class Command(BaseCommand):
 
             )
             cocktails_index_page.add_child(instance=cocktail_page)
+            for ingredient in ingredients:
+                cocktail_page.tags.add(ingredient)
             cocktail_page.save_revision().publish()
             print("Published cocktail page " + strDrink)
