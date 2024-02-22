@@ -38,9 +38,10 @@ class CocktailPageTag(TaggedItemBase):
 
 class CocktailPage(Page):
     strDrink = models.CharField(max_length=200)
-    strDrinkThumb = models.CharField(max_length=255)
+    strDrinkThumb = models.CharField(
+        max_length=255, default="https://img.freepik.com/vecteurs-premium/vecteur-icone-image-par-defaut-page-image-manquante-pour-conception-site-web-application-mobile-aucune-photo-disponible_87543-11093.jpg", blank=True, null=True)
     idDrink = models.CharField(max_length=200)
-    ingredients = models.JSONField(default=list)
+    ingredients = models.JSONField(default=list, blank=True, null=True)
     strAlcoholic = models.CharField(max_length=50, default="Alcoholic")
     strInstructions = models.TextField(default="")
 

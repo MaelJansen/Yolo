@@ -1,7 +1,10 @@
+# dans le fichier forms.py de l'application
 from django import forms
-from .models import CocktailPage
+from .models import Cocktail
+
 
 class CocktailForm(forms.ModelForm):
     class Meta:
-        model = CocktailPage
-        fields = ['id', 'strDrink', 'strDrinkThumb', 'idDrink']
+        model = Cocktail
+        fields = ['name', 'ingredients', 'alcoholic',
+                  'instructions']  # champs gérés par le formulaire
