@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from .models import Cocktail
+from .models import Cocktail, CocktailPage
 from rest_framework import permissions, viewsets, status, generics, serializers
 from .serializers import CocktailSerializer
 from django.views.decorators.csrf import csrf_protect
@@ -15,12 +15,12 @@ def liste_cocktail(request):
     return render(request, 'liste_cocktail.html', {'cocktails': cocktail})
 
 class CocktailViewSet(viewsets.ModelViewSet):
-    queryset = Cocktail.objects.all().order_by('idDrink')
+    queryset = CocktailPage.objects.all().order_by('id')
     serializer_class = CocktailSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 class CocktailDetailViewSet(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Cocktail.objects.all()
+    queryset = CocktailPage.objects.all()
     serializer_class = CocktailSerializer
     permission_classes = [permissions.IsAuthenticated]
 
@@ -55,7 +55,7 @@ def add_cocktail(request):
 
 @api_view(['POST'])
 def update_cocktail(request, pk):
-    cocktail = Cocktail.objects.get(pk=pk)
+    cocktail = CocktailPage.objects.get(pk=pk)
     data = CocktailSerializer(instance=cocktail, data=request.data)
  
     if data.is_valid():
@@ -66,6 +66,6 @@ def update_cocktail(request, pk):
     
 @api_view(['DELETE'])
 def delete_cocktail(request, pk):
-    cocktail = get_object_or_404(Cocktail, pk=pk)
+    cocktail = get_object_or_404(CocktailPage, pk=pk)
     cocktail.delete()
     return Response(status=status.HTTP_202_ACCEPTED)
