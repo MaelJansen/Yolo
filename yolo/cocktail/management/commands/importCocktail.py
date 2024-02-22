@@ -20,6 +20,11 @@ class Command(BaseCommand):
         home.add_child(instance=cocktails_index_page)
         cocktails_index_page.save_revision().publish()
 
+        # Créez la page d'index des tags
+        tags_index_page = CocktailTagIndexPage(title="Tags")
+        home.add_child(instance=tags_index_page)
+        tags_index_page.save_revision().publish()
+
         # Obtenez les données JSON de l'API
         response = requests.get(
             'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail')
