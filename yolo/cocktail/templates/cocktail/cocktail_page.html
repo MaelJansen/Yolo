@@ -11,18 +11,15 @@
     <div class="meta">{{page.strAlcoholic}}</div>
     <div class="description">
         <h4>Ingredients</h4>
-        <p>
             {% with tags=page.tags.all %}
             {% if tags %}
                 <div class="tags">
-                    <h3>Tags</h3>
                     {% for tag in tags %}
                         <a href="{% slugurl 'tags' %}?tag={{ tag }}">{{ tag }}</a>
                     {% endfor %}
                 </div>
             {% endif %}
         {% endwith %}
-        </p>
     </div>
     <div class="description">
         <h4>Instructions</h4>
