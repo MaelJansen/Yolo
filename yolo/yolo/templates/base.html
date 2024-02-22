@@ -77,11 +77,10 @@
     <div class="interface">
       {% include "includes/header.html" %}
       <div class="section">
-        {% block list %}
-
+        {% block auht %} {% block list %}
         <h1>Home</h1>
         <h3>Welcome to Yolo, your favourite cocktail listing app !</h3>
-        {% endblock list %}
+        {% endblock list %} {% endblock auht %}
       </div>
     </div>
     <div class="wet-sand"></div>
