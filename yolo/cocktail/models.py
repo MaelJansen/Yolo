@@ -2,12 +2,12 @@ from django.db import models
 from wagtail.models import Page
 from wagtail.admin.panels import FieldPanel
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-
+from wagtail.search import index
 
 class Cocktail(models.Model):
     name = models.CharField(max_length=50)
-    image = models.ImageField(upload_to="cocktail_images", blank=True)
-    ingredients = models.JSONField(default=list)
+    image = models.ImageField(upload_to="cocktail_images", blank=True, null=True)
+    ingredients = models.JSONField(default={"strIngredient1": "water", "strIngredient2": "salt"})
     alcoholic = models.CharField(max_length=50, default="Alcoholic")
     instructions = models.TextField(default="")
 
@@ -25,7 +25,7 @@ class Cocktail(models.Model):
 
 class CocktailPage(Page):
     strDrink = models.CharField(max_length=200)
-    strDrinkThumb = models.CharField(max_length=255)
+    strDrinkThumb = models.CharField(max_length=255, default="https://img.freepik.com/vecteurs-premium/vecteur-icone-image-par-defaut-page-image-manquante-pour-conception-site-web-application-mobile-aucune-photo-disponible_87543-11093.jpg", blank=True, null=True)
     idDrink = models.CharField(max_length=200)
     ingredients = models.JSONField(default=list)
     strAlcoholic = models.CharField(max_length=50, default="Alcoholic")
@@ -41,6 +41,11 @@ class CocktailPage(Page):
     ]
 
     search_auto_update = False
+
+    search_fields = Page.search_fields + [
+        index.SearchField("strDrink"),
+        index.SearchField("idDrink"),
+    ]
 
 
 class CocktailIndexPage(Page):
