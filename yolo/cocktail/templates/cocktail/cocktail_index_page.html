@@ -15,7 +15,11 @@
           />
           <div class="header"><a href="{% pageurl cocktail %}">{{ cocktail.strDrink }}</a></div>
           <div class="meta">{{cocktail.strAlcoholic}}</div>
-          <div class="description">{{cocktail.ingredients}}</div>
+          <div class="description"><p>
+            {% for ingredient in cocktail.ingredients %}
+                {{ingredient}}{% if not forloop.last %},{% endif %}
+            {% endfor %}
+            </p></div>
         </div>
         <div class="extra content">
           <div class="ui two buttons">

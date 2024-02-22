@@ -11,7 +11,11 @@
     <div class="meta">{{page.strAlcoholic}}</div>
     <div class="description">
         <h4>Ingredients</h4>
-        {{page.ingredients}}
+        <p>
+        {% for ingredient in page.ingredients %}
+            {{ingredient}}{% if not forloop.last %},{% endif %}
+        {% endfor %}
+        </p>
     </div>
     <div class="description">
         <h4>Instructions</h4>
