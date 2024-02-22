@@ -12,9 +12,16 @@
     <div class="description">
         <h4>Ingredients</h4>
         <p>
-        {% for ingredient in page.ingredients %}
-            {{ingredient}}{% if not forloop.last %},{% endif %}
-        {% endfor %}
+            {% with tags=page.tags.all %}
+            {% if tags %}
+                <div class="tags">
+                    <h3>Tags</h3>
+                    {% for tag in tags %}
+                        <a href="{% slugurl 'tags' %}?tag={{ tag }}">{{ tag }}</a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
         </p>
     </div>
     <div class="description">

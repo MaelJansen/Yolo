@@ -1,7 +1,7 @@
 import csv
 from django.core.management.base import BaseCommand
 from wagtail.models import Page
-from ...models import CocktailPage, CocktailIndexPage
+from ...models import CocktailPage, CocktailIndexPage, CocktailTagIndexPage
 import json
 import requests
 
@@ -61,5 +61,7 @@ class Command(BaseCommand):
 
             )
             cocktails_index_page.add_child(instance=cocktail_page)
+            for ingredient in ingredients:
+                cocktail_page.tags.add(ingredient)
             cocktail_page.save_revision().publish()
             print("Published cocktail page " + strDrink)

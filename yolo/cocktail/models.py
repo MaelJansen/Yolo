@@ -1,7 +1,12 @@
 from django.db import models
-from wagtail.models import Page
-from wagtail.admin.panels import FieldPanel
+from wagtail.models import Page, Orderable
+from wagtail.admin.panels import FieldPanel, InlinePanel, MultiFieldPanel
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from modelcluster.fields import ParentalKey, ParentalManyToManyField
+from modelcluster.contrib.taggit import ClusterTaggableManager
+from taggit.models import TaggedItemBase
+from wagtail.fields import RichTextField
+from wagtail.search import index
 
 
 class Cocktail(models.Model):
@@ -23,6 +28,14 @@ class Cocktail(models.Model):
         return self.name
 
 
+class CocktailPageTag(TaggedItemBase):
+    content_object = ParentalKey(
+        'CocktailPage',
+        related_name='tagged_items',
+        on_delete=models.CASCADE
+    )
+
+
 class CocktailPage(Page):
     strDrink = models.CharField(max_length=200)
     strDrinkThumb = models.CharField(max_length=255)
@@ -31,13 +44,16 @@ class CocktailPage(Page):
     strAlcoholic = models.CharField(max_length=50, default="Alcoholic")
     strInstructions = models.TextField(default="")
 
+    tags = ClusterTaggableManager(through=CocktailPageTag, blank=True)
+
     content_panels = Page.content_panels + [
         FieldPanel("strDrink"),
         FieldPanel("strDrinkThumb"),
         FieldPanel("idDrink"),
         FieldPanel("ingredients"),
         FieldPanel("strAlcoholic"),
-        FieldPanel("strInstructions")
+        FieldPanel("strInstructions"),
+        FieldPanel("tags")
     ]
 
     search_auto_update = False
@@ -64,4 +80,18 @@ class CocktailIndexPage(Page):
         context = super().get_context(request)
         cocktails = self.paginate(request)
         context["Cocktails"] = cocktails
+        return context
+
+
+class CocktailTagIndexPage(Page):
+
+    def get_context(self, request):
+
+        # Filter by tag
+        tag = request.GET.get('tag')
+        cocktailpages = CocktailPage.objects.filter(tags__name=tag)
+
+        # Update template context
+        context = super().get_context(request)
+        context['cocktailpages'] = cocktailpages
         return context

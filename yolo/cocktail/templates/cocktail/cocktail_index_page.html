@@ -17,7 +17,7 @@
           <div class="meta">{{cocktail.strAlcoholic}}</div>
           <div class="description"><p>
             {% for ingredient in cocktail.ingredients %}
-                {{ingredient}}{% if not forloop.last %},{% endif %}
+            {{ingredient}}{% if not forloop.last %},{% endif %}
             {% endfor %}
             </p></div>
         </div>
