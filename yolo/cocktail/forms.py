@@ -1,7 +1,7 @@
 from django import forms
-from .models import Cocktail
+from .models import CocktailPage
 
 class CocktailForm(forms.ModelForm):
     class Meta:
-        model = Cocktail
+        model = CocktailPage
         fields = ['id', 'strDrink', 'strDrinkThumb', 'idDrink']
