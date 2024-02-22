@@ -1,15 +1,48 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block list %}
 
 <div class="container">
   <ul class="cocktail-list">
-    <li>{{Cocktails.name}}</li>
+    <div class="ui cards">
+      {% for cocktail in Cocktails %}
+      <div class="card">
+        <div class="content">
+          <img
+            class="right floated mini ui image"
+            src="{{cocktail.strDrinkThumb}}"
+          />
+          <div class="header"><a href="{% pageurl cocktail %}">{{ cocktail.strDrink }}</a></div>
+          <div class="meta">{{cocktail.strAlcoholic}}</div>
+          <div class="description"><p>
+            {% for ingredient in cocktail.ingredients %}
+                {{ingredient}}{% if not forloop.last %},{% endif %}
+            {% endfor %}
+            </p></div>
+        </div>
+        <div class="extra content">
+          <div class="ui two buttons">
+            <div class="ui basic green button">Approve</div>
+            <div class="ui basic red button">Decline</div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
   </ul>
 </div>
 
-{% if cocktails.paginator.count > 12 %}
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12">test</div>
-  </div>
+<!-- BEGIN: Pagination -->
+<div class="ui pagination menu">
+  {% if Cocktails.has_previous %}
+  <a href="?page={{ Cocktails.previous_page_number }}">Previous</a>
+  {% endif %}
+  <span class="current-page">{{ Cocktails.number }}</span>
+  {% if Cocktails.has_next %}
+  <a href="?page={{ Cocktails.next_page_number }}">Next</a>
+  {% endif %}
 </div>
-{% endif %} {% endblock content %}
+<!-- END: Pagination -->
+
+{% endblock list %}
