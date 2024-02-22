@@ -4,14 +4,13 @@
 {% get_site_root as site_root %}
 <nav class="top-navbar">
     <div class="logo">
-      <a href="#">
+      <a href="{% pageurl site_root %}">
         <img class="ui image" src="../../media/images/martini-glass.png" alt="Y" />
         OLO
       </a>
     </div>
     <div class="menu">
       <p>
-        <a href="{% pageurl site_root %}">{{ site_root.title }}</a> |
         {% for menuitem in site_root.get_children.live.in_menu %}
 
             {# Add the child pages of your HomePage that have their `Show in menu` checked #}
@@ -20,10 +19,10 @@
         
             {% if request.user.is_authenticated %}
             <a href="/accounts/logout">Logout</a>
+            <a href="/cocktails/add">Add Cocktail</a>
             {% else %}
             <a href="/accounts/login">Login</a>
             {% endif %}
-        | <a href="/search/">Search</a>
         </p>
     </div>
   </nav>
